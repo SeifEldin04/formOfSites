@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/Css/all.min.css">
+    <link rel="stylesheet" href="bootstrap/Css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Pacifico&family=Righteous&display=swap" rel="stylesheet"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=PT+Sans+Caption&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body class="bg-body-secondary">
+    
+    <div class="container d-flex justify-content-center align-items-center py-5">
+        <div class="myTitle ">
+            <h1 class="fa-3x"> Bookmarker </h1>
+        </div>
+    </div>
+
+    <div class="container bg-body-tertiary rounded-3 py-4">
+        <div class="bookmark-body text-center">
+            <h2 class="mb-3"> 
+                <i class="fa-solid fa-bookmark"></i>
+                Bookmark your favorite sites 
+            </h2>
+        </div>
+        <div class="myForm my-3">
+            <label class="mb-2 ms-2"> 
+                <i class="fa-solid fa-book-bookmark pe-2"></i>
+                Site Name :
+            </label>
+            <input type="text" oninput="validateSiteName()" class="form-control border-black" id="siteNameInp">
+
+            
+
+            <label class="mt-3 mb-2 ms-2"> 
+                <i class="fa-solid fa-link pe-2"></i>
+                Site URL : 
+            </label>
+            <input type="text" oninput="validateSiteUrl()" class="form-control border-black" id="siteUrlInp">
+
+            <p id="urlAlert" class="bg-body-secondary text-center w-25 my-4 p-2 shadow-lg rounded-2 d-none"> Your URL link must start with : "https://" and in the end with : "/" </p>
+
+            <button class="myBtn1 btn mt-3 text-white" onclick="addSite()"> Submit  </button>
+        </div>
+    </div>
+
+    <div class="container myTable">
+        <div class="row py-5">
+            <table class="table table-striped text-center">
+                <thead>
+                    <th> Index </th>
+                    <th> Website Name </th>
+                    <th> Visit </th>
+                    <th> Delete </th>
+                </thead>
+                <tbody id="tableList">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/js/main.js"></script>
+</body>
+</html>
