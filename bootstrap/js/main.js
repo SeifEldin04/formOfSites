@@ -1,7 +1,7 @@
 var siteName = document.getElementById("siteNameInp");
 var siteUrl = document.getElementById("siteUrlInp");
 
-var regex1 = /[A-Za-z0-9]{3,}/;
+var regex1 = /^[A-Za-z0-9]{3,15}$/;
 var regex2 = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})(\/[^\s]*)?$/;
 
 var urlAlert = document.getElementById("urlAlert");
@@ -17,18 +17,18 @@ else {
 }
 
 function addSite() {
-    var sites = {
-        name: siteName.value,
-        url: siteUrl.value
-    }
-
-    if(regex1.test(siteName.value) && regex2.test(siteUrl.value)){
+    if (regex1.test(siteName.value) && regex2.test(siteUrl.value)) {
+        var sites = {
+            name: siteName.value,
+            url: siteUrl.value
+        }
+        dontRepeat();
         sitesContainer.push(sites);
         localStorage.setItem("mySites", JSON.stringify(sitesContainer));
         displaySites(sitesContainer);
         clearForm();
     }
-    else{
+    else {
         window.alert(`Site Name or Url is not valid, Please follow the rules below :
 
         1 - Site name must contain at least 3 characters
@@ -36,13 +36,11 @@ function addSite() {
     }
 }
 
-
-
 function displaySites(data) {
     var cartona = ``;
     for (var i = 0; i < sitesContainer.length; i++) {
         cartona += `<tr>
-        <td> ${i+1} </td>
+        <td> ${i + 1} </td>
         <td> ${data[i].name} </td>
         <td> <button class="btn btn-sm btn-warning px-3" onclick="visitSite(${i})"> <i class="fa-solid fa-eye pe-2"></i> Visit </button> </td>
         <td> <button class="btn btn-sm btn-danger px-3" onclick="deleteSite(${i})"> <i class="fa-solid fa-trash-can"></i> Delete </button> </td>
@@ -63,30 +61,42 @@ function deleteSite(index) {
     displaySites(sitesContainer);
 }
 
-function visitSite(index){
+function visitSite(index) {
     window.open(sitesContainer[index].url);
 }
 
-function validateSiteName(){
-    console.log(regex1.test(siteName.value));  
+function validateSiteName() {
+    console.log(regex1.test(siteName.value));
 
-    if(regex1.test(siteName.value)){
-        siteName.classList.replace("is-invalid" , "is-valid")
+    if (regex1.test(siteName.value)) {
+        siteName.classList.remove("is-invalid");
+        siteName.classList.add("is-valid")
     }
-    else{
+    else {
         siteName.classList.add("is-invalid")
+        siteName.classList.remove("is-valid");
     }
 }
 
-function validateSiteUrl(){
+function validateSiteUrl() {
     console.log(regex2.test(siteUrl.value));
 
-    urlAlert.classList.replace("d-none" , "d-block")
+    urlAlert.classList.replace("d-none", "d-block")
 
-    if(regex2.test(siteUrl.value)){
-        siteUrl.classList.replace("is-invalid" , "is-valid")
+    if (regex2.test(siteUrl.value)) {
+        siteUrl.classList.remove("is-invalid");
+        siteUrl.classList.add("is-valid")
     }
-    else{
+    else {
         siteUrl.classList.add("is-invalid")
+        siteUrl.classList.remove("is-valid");
     }
 }
+
+// function dontRepeat() {
+//     for (var i = 0; sitesContainer.length; i++) {
+//         if(siteName.value == sitesContainer){
+//             window.alert("hello")
+//         }
+//     }
+// }
