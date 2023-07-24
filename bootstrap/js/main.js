@@ -90,5 +90,6 @@ function validateSiteUrl() {
         siteUrl.classList.add("is-invalid")
         siteUrl.classList.remove("is-valid");
     }
+    
 }
 
