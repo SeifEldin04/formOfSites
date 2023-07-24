@@ -22,7 +22,6 @@ function addSite() {
             name: siteName.value,
             url: siteUrl.value
         }
-        dontRepeat();
         sitesContainer.push(sites);
         localStorage.setItem("mySites", JSON.stringify(sitesContainer));
         displaySites(sitesContainer);
@@ -93,10 +92,3 @@ function validateSiteUrl() {
     }
 }
 
-// function dontRepeat() {
-//     for (var i = 0; sitesContainer.length; i++) {
-//         if(siteName.value == sitesContainer){
-//             window.alert("hello")
-//         }
-//     }
-// }
