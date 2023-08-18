@@ -1,7 +1,7 @@
 var siteName = document.getElementById("siteNameInp");
 var siteUrl = document.getElementById("siteUrlInp");
 
-var regex1 = /^[A-Za-z0-9]{3,15}$/;
+// var regex1 = /^[A-Za-z0-9]{3,15}$/;
 var regex2 = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})(\/[^\s]*)?$/;
 
 var urlAlert = document.getElementById("urlAlert");
@@ -17,7 +17,7 @@ else {
 }
 
 function addSite() {
-    if (regex1.test(siteName.value) && regex2.test(siteUrl.value)) {
+    if (regex2.test(siteUrl.value)) {
         var sites = {
             name: siteName.value,
             url: siteUrl.value
@@ -64,18 +64,18 @@ function visitSite(index) {
     window.open(sitesContainer[index].url);
 }
 
-function validateSiteName() {
-    console.log(regex1.test(siteName.value));
+// function validateSiteName() {
+//     console.log(regex1.test(siteName.value));
 
-    if (regex1.test(siteName.value)) {
-        siteName.classList.remove("is-invalid");
-        siteName.classList.add("is-valid")
-    }
-    else {
-        siteName.classList.add("is-invalid")
-        siteName.classList.remove("is-valid");
-    }
-}
+//     if (regex1.test(siteName.value)) {
+//         siteName.classList.remove("is-invalid");
+//         siteName.classList.add("is-valid")
+//     }
+//     else {
+//         siteName.classList.add("is-invalid")
+//         siteName.classList.remove("is-valid");
+//     }
+// }
 
 function validateSiteUrl() {
     console.log(regex2.test(siteUrl.value));
@@ -90,6 +90,17 @@ function validateSiteUrl() {
         siteUrl.classList.add("is-invalid")
         siteUrl.classList.remove("is-valid");
     }
-    
+
 }
+
+// function checkDuplication(test) {
+//     for (var i = 0; i < sitesContainer.length; i++) {
+//         if(sitesContainer[i].name == test){
+//             return false;
+//         }
+//         else{
+//             return true;
+//         }
+//     }
+// }
 
