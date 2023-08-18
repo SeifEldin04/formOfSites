@@ -78,8 +78,6 @@ function visitSite(index) {
 // }
 
 function validateSiteUrl() {
-    console.log(regex2.test(siteUrl.value));
-
     urlAlert.classList.replace("d-none", "d-block")
 
     if (regex2.test(siteUrl.value)) {
@@ -90,7 +88,6 @@ function validateSiteUrl() {
         siteUrl.classList.add("is-invalid")
         siteUrl.classList.remove("is-valid");
     }
-
 }
 
 // function checkDuplication(test) {
